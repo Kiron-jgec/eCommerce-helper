@@ -13,7 +13,7 @@ export function calculateMarketplaceSellingPrice(data) {
   const marketplaceFeePercent = n(data.marketplaceFeePercent);
 
   const baseBuyingCost =
-    productCost + buyingGst + supplierShipping + packagingCost+labelPrintingCost
+    productCost + (productCost*buyingGst*0.01) + supplierShipping + packagingCost+labelPrintingCost
 
   const riskCost = returnCost + rtoCost;
 
@@ -36,7 +36,7 @@ export function calculateMarketplaceSellingPrice(data) {
   return {
     // buying
     productCost: productCost.toFixed(2),
-    buyingGst: buyingGst.toFixed(2),
+    buyingGst: (productCost*buyingGst*0.01).toFixed(2),
     supplierShipping: supplierShipping.toFixed(2),
     packagingCost: packagingCost.toFixed(2),
     baseBuyingCost: baseBuyingCost.toFixed(2),

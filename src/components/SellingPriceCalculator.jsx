@@ -55,7 +55,7 @@ export default function SellingPriceCalculator() {
     <Grid container spacing={3}>
       {/* INPUTS */}
       <Grid item size={8} md={8}>
-        <Card elevation={0} sx={{ border: 1, borderColor: "divider" }}>
+        <Card elevation={1} sx={{ border: 1, borderColor: "divider" }}>
           <CardContent>
             <Typography variant="h5" fontWeight="bold">
               Marketplace Selling Price Calculator
@@ -64,19 +64,19 @@ export default function SellingPriceCalculator() {
             {/* BUYING */}
             <Typography mt={3}>📦 Product & Buying Cost</Typography>
             <Grid container spacing={2} mt={1}>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input label="Product Cost (₹)" name="productCost" onChange={handleChange} />
               </Grid>
-              <Grid item size={2.4}>
-                <Input label="Buying GST (₹)" name="buyingGst" onChange={handleChange} />
+              <Grid item size={3}>
+                <Input label="Buying GST (%)" name="buyingGst" onChange={handleChange} />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input label="Supplier Shipping (₹)" name="supplierShipping" onChange={handleChange} />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input label="Packaging Cost (₹)" name="packagingCost" onChange={handleChange} />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input label="Label Printing Cost (₹)" name="labelPrintingCost" onChange={handleChange} />
               </Grid>
             </Grid>
@@ -147,10 +147,10 @@ export default function SellingPriceCalculator() {
       {/* RESULT */}
       <Grid item size={4} md={8}>
 <Card
-  elevation={0}
+  elevation={1}
   sx={{
     border: 1,
-    borderColor: "primary.main",
+    borderColor: "divider",
     position: { md: "sticky", xs: "static" },
     top: 20,
   }}
@@ -182,7 +182,7 @@ export default function SellingPriceCalculator() {
       <Row label="Marketplace Fee" value={result.marketplaceFee} />
     </Section>
 
-    <Divider sx={{ my: 0.6 }} />
+    <Divider sx={{ my: 2.3 }} />
 
     {/* FINAL */}
     <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
