@@ -21,6 +21,10 @@ export default function Header() {
     { label: "Profit Calculator", path: "/profit-calculator" },
     { label: "Selling Price Calculator", path: "/selling-price-calculator" },
     { label: "Add Message for Buy's on Labels", path: "/pdf-label-updater" },
+    { label: "Break-Even Calculator", path: "/break-even-calculator" },
+    { label: "Ad ROAS Calculator", path: "/ad-roas-calculator" },
+    { label: "Return Loss Calculator", path: "/return-loss-calculator" },
+    // { label: "Low Shipping Generator", path: "/low-shipping-generator" },
   ];
 
   return (

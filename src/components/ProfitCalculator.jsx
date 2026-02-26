@@ -8,6 +8,7 @@ import {
   Grid,
   Divider,
   Chip,
+  Container
 } from "@mui/material";
 import { calculateEcommercePricing } from "../utils/calculations";
 
@@ -40,6 +41,13 @@ export default function ProfitCalculator() {
   const profit = Number(result?.profit || 0);
 
   return (
+    <Container maxWidth="xl" sx={{ py: 0 }}>
+        <Typography variant="h6" fontWeight={600}>
+              eCommerce Profit Calculator
+            </Typography>
+            <Typography variant="body2"  mb={3}>
+              Calculate your net profit and margin for each sale by entering your costs and selling price. This tool helps you understand the impact of marketplace fees, GST, TCS, and other expenses on your profitability.
+            </Typography>
     <Grid container spacing={3} sx={{}}>
       {/* LEFT – INPUTS */}
       <Grid item size={8}>
@@ -48,12 +56,9 @@ export default function ProfitCalculator() {
           sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}
         >
           <CardContent>
-            <Typography variant="h5" fontWeight="bold">
-              eCommerce Profit Calculator
-            </Typography>
-
+        
             {/* BUYING */}
-            <Typography variant="subtitle1" mt={3} sx={{ fontWeight: 600 }}>
+            <Typography variant="subtitle1"  sx={{ fontWeight: 600 }}>
               Buying Cost (Per Piece) :
             </Typography>
             <Grid container spacing={2} mt={2}>
@@ -158,7 +163,7 @@ export default function ProfitCalculator() {
           elevation={0}
         >
           <CardContent>
-            <Typography variant="h6">💰 Live Result</Typography>
+            <Typography variant="h6"> Result :</Typography>
 
             <Box mt={2} display="grid" gap={1.2}>
               <Row label="Final Buying Price" value={result.finalBuyingPrice} />
@@ -193,6 +198,7 @@ export default function ProfitCalculator() {
         </Card>
       </Grid>
     </Grid>
+    </Container>
   );
 }
 

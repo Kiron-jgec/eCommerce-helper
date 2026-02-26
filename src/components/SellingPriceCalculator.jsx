@@ -238,7 +238,7 @@ export default function SellingPriceCalculator() {
                 alignItems: "center",
               }}
             >
-              <Typography variant="h4" color="primary.main">
+              <Typography variant="h4" >
                 ₹{result.listingPrice}
               </Typography>
               <Typography variant="caption" color="text.secondary">
