@@ -9,6 +9,7 @@ import {
   Divider,
   ToggleButton,
   ToggleButtonGroup,
+  Container
 } from "@mui/material";
 import { calculateMarketplaceSellingPrice } from "../utils/sellingPriceCalculator";
 
@@ -45,6 +46,13 @@ export default function SellingPriceCalculator() {
 
   const result = useMemo(() => calculateMarketplaceSellingPrice(form), [form]);
   return (
+        <Container maxWidth="xl" sx={{ py: 0 }}>
+        <Typography variant="h6" fontWeight={600}>
+              Marketplace Selling Price Calculator
+            </Typography>
+            <Typography variant="body2"  mb={3}>
+              Calculate the optimal selling price for your product on marketplaces like Amazon, Flipkart, etc. by entering your costs, desired profit, and marketplace fees. This tool helps you understand the breakdown of your listing price and ensures you cover all expenses while achieving your profit goals.
+            </Typography>
     <Grid container spacing={3}>
       {/* INPUTS */}
       <Grid item size={8} md={8}>
@@ -53,15 +61,12 @@ export default function SellingPriceCalculator() {
           sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}
         >
           <CardContent>
-            <Typography variant="h5" fontWeight="bold">
-              Marketplace Selling Price Calculator
-            </Typography>
 
             {/* BUYING */}
-            <Typography mt={3} sx={{ fontWeight: 600 }}>
+            <Typography  sx={{ fontWeight: 600 }}>
               Product & Buying Cost :{" "}
             </Typography>
-            <Grid container spacing={2} mt={1}>
+            <Grid container spacing={2} mt={2}>
               <Grid item size={3}>
                 <Input
                   label="Product Cost (₹)"
@@ -103,7 +108,7 @@ export default function SellingPriceCalculator() {
             <Typography mt={3} sx={{ fontWeight: 600 }}>
               Return & RTO Cost (Avg) :{" "}
             </Typography>
-            <Grid container spacing={2} mt={1}>
+            <Grid container spacing={2} mt={2}>
               <Grid item xs={12} sm={6}>
                 <Input
                   label="Return Cost (₹)"
@@ -124,7 +129,7 @@ export default function SellingPriceCalculator() {
               Marketplace Fee :
             </Typography>
 
-            <Grid container spacing={2} mt={1}>
+            <Grid container spacing={2} mt={2}>
               <Grid item xs={12} sm={6}>
                 <Input
                   label="Marketplace Fee (%)"
@@ -139,7 +144,7 @@ export default function SellingPriceCalculator() {
               Profit :{" "}
             </Typography>
 
-            <Grid container spacing={2} mt={1}>
+            <Grid container spacing={2} mt={2}>
               <Grid item xs={12} sm={6}>
                 <ToggleButtonGroup
                   size="small"
@@ -226,9 +231,11 @@ export default function SellingPriceCalculator() {
               <Row label="Desired Profit" value={result.profit} />
               <Row label="Buyer Shipping" value={result.buyerShipping} />
               <Row label="Marketplace Fee" value={result.marketplaceFee} />
+              <Row label="Selling GST" value={result.sellingGstAmount} />
+              <Row label="Payable GST" value={result.payableGstAmount*-1} color="error" />
             </Section>
 
-            <Divider sx={{ my: 2.3 }} />
+            {/* <Divider sx={{ my: 2.3 }} /> */}
 
             {/* FINAL */}
             <Box
@@ -249,12 +256,15 @@ export default function SellingPriceCalculator() {
         </Card>
       </Grid>
     </Grid>
+    </Container>
   );
 }
 
-const Row = ({ label, value, strong }) => (
-  <Box display="flex" justifyContent="space-between">
+const Row = ({ label, value, strong,color="" }) => (
+  <Box display="flex" justifyContent="space-between" >
     <Typography fontWeight={strong ? 600 : 400}>{label}</Typography>
-    <Typography fontWeight={strong ? 600 : 400}>₹{value}</Typography>
+    <Typography fontWeight={strong ? 600 : 400} color={color}>
+      ₹{value}
+    </Typography>
   </Box>
 );

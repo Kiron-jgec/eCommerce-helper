@@ -34,7 +34,7 @@ const BreakEven = () => {
 
   return (
     <Container maxWidth="xl" sx={{ py: 0 }}>
-                      <Typography variant="h6" fontWeight={600} >
+      <Typography variant="h6" fontWeight={600} >
         Break-Even Calculator
       </Typography>
        <Typography variant="body2"  mb={3}>
@@ -66,3 +66,5 @@ const BreakEven = () => {
 };
 
 export default BreakEven;
+
+

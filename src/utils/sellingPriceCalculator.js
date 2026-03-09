@@ -32,7 +32,9 @@ export function calculateMarketplaceSellingPrice(data) {
 
   const marketplaceFee =
     (listingPrice * marketplaceFeePercent) / 100;
-
+  const sellingGstAmount = (listingPrice * buyingGst) / 100;
+  const finalListingPrice = listingPrice + sellingGstAmount
+  const payableGstAmount = sellingGstAmount - (productCost*buyingGst*0.01)
   return {
     // buying
     productCost: productCost.toFixed(2),
@@ -50,8 +52,10 @@ export function calculateMarketplaceSellingPrice(data) {
     profit: profit.toFixed(2),
     buyerShipping: buyerShipping.toFixed(2),
     marketplaceFee: marketplaceFee.toFixed(2),
-
+    sellingGstAmount: sellingGstAmount.toFixed(2),
+    payableGstAmount: payableGstAmount.toFixed(2),
     // final
-    listingPrice: listingPrice.toFixed(2),
+
+    listingPrice: finalListingPrice.toFixed(2),
   };
 }

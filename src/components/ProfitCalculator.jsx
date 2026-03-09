@@ -19,12 +19,13 @@ const Input = (props) => (
 export default function ProfitCalculator() {
   const [form, setForm] = useState({
     productCost: "",
+    buyingGst: 18,
     supplierShipping: "",
     packagingCost: "",
     labelCost: "",
     sellingPrice: "",
     marketplaceFeePercent: "",
-    buyerShipping: 60,
+    buyerShipping: 0,
     gstPercent: 18,
     tcsPercent: 1,
   });
@@ -69,6 +70,13 @@ export default function ProfitCalculator() {
                   onChange={handleChange}
                 />
               </Grid>
+               <Grid item size={3}>
+                <Input
+                  label="Buying GST (%)"
+                  name="buyingGst"
+                  onChange={handleChange}
+                />
+              </Grid>
               <Grid item size={3}>
                 <Input
                   label="Supplier Shipping (₹)"
@@ -97,21 +105,21 @@ export default function ProfitCalculator() {
               Selling & Platform Charges
             </Typography>
             <Grid container spacing={2} mt={2}>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input
                   label="Selling Price (₹)"
                   name="sellingPrice"
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input
                   label="Marketplace Fee (%)"
                   name="marketplaceFeePercent"
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input
                   label="Buyer Shipping (₹)"
                   name="buyerShipping"
@@ -119,7 +127,7 @@ export default function ProfitCalculator() {
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item size={2.4}>
+              <Grid item size={3}>
                 <Input
                   label="GST on Fees (%)"
                   name="gstPercent"
@@ -127,14 +135,14 @@ export default function ProfitCalculator() {
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item size={2.4}>
+              {/* <Grid item size={2.4}>
                 <Input
                   label="TCS (%)"
                   name="tcsPercent"
                   value={form.tcsPercent}
                   onChange={handleChange}
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
 
             <Typography
@@ -167,10 +175,13 @@ export default function ProfitCalculator() {
 
             <Box mt={2} display="grid" gap={1.2}>
               <Row label="Final Buying Price" value={result.finalBuyingPrice} />
+              <Row label="Buying GST Amount" value={result.buyingGstAmount} />
               <Row label="Marketplace Fee" value={result.marketplaceFee} />
-              <Row label="GST on Fee" value={result.gstOnFee} />
-              <Row label="TCS" value={result.tcs} />
-              <Row label="Net Bank Settlement" value={result.netSettlement} />
+              <Row label="GST on Fee" value={result.gstOnFee*-1} color="red" />
+              <Row label="TCS" value={result.tcs*-1} color="red" />
+              <Row label="Net Bank Settlement" value={result.netSettlement} color="success"/>
+              <Row label="GST on Selling Price" value={result.sellingGstAmount}  />
+              <Row label="Payable GST Amount" value={result.payableGstAmount*-1} color="error" />
             </Box>
 
             <Divider sx={{ my: 2.2 }} />
@@ -185,7 +196,7 @@ export default function ProfitCalculator() {
                 variant="h5"
                 color={profit >= 0 ? "success.main" : "error.main"}
               >
-                Profit: ₹{result.profit}
+                Net Profit: ₹{result.profit}
               </Typography>
 
               <Chip
@@ -202,9 +213,11 @@ export default function ProfitCalculator() {
   );
 }
 
-const Row = ({ label, value }) => (
+const Row = ({ label, value,color="" }) => (
   <Box display="flex" justifyContent="space-between">
     <Typography color="text.secondary">{label}</Typography>
-    <Typography fontWeight="bold">₹{value}</Typography>
+    <Typography fontWeight="bold" color={color}>
+      ₹{value}
+    </Typography>
   </Box>
 );

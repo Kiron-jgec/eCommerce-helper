@@ -36,7 +36,7 @@ export default function PdfLabelUpdater() {
   const [status, setStatus] = useState({ msg: "", type: "", show: false });
   const maxMessageCount = 250;
   const [customMessage, setCustomMessage] = useState(
-    "Thank you for your order. We sincerely appreciate your trust in our store. Your support means a great deal to our business.",
+    "Thank you for your order. We sincerely appreciate your trust in our store. Your support means a great deal to our business, - Team KIYA MONI.",
   );
 
   const extractBuyerName = (text) => {
