@@ -235,7 +235,7 @@ export default function SellingPriceCalculator() {
               <Row label="Payable GST" value={result.payableGstAmount*-1} color="error" />
             </Section>
 
-            {/* <Divider sx={{ my: 2.3 }} /> */}
+            <Divider sx={{ my: 2.3 }} />
 
             {/* FINAL */}
             <Box
