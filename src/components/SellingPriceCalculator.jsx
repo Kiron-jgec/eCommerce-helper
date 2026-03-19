@@ -55,7 +55,7 @@ export default function SellingPriceCalculator() {
             </Typography>
     <Grid container spacing={3}>
       {/* INPUTS */}
-      <Grid item size={{xs:12,md:9}} >
+      <Grid item size={{xs:12,md:8}} >
         <Card
           elevation={0}
           sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}
@@ -190,7 +190,7 @@ export default function SellingPriceCalculator() {
       </Grid>
 
       {/* RESULT */}
-      <Grid item size={{xs:12,md:3}}>
+      <Grid item size={{xs:12,md:4}}>
         <Card
           elevation={0}
           sx={{
