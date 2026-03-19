@@ -20,9 +20,9 @@ export default function ProfitCalculator() {
   const [form, setForm] = useState({
     productCost: "",
     buyingGst: 18,
-    supplierShipping: "",
-    packagingCost: "",
-    labelCost: "",
+    supplierShipping: 2,
+    packagingCost: 10,
+    labelCost: 1,
     sellingPrice: "",
     marketplaceFeePercent: "",
     buyerShipping: 0,
@@ -75,6 +75,7 @@ export default function ProfitCalculator() {
                   label="Buying GST (%)"
                   name="buyingGst"
                   onChange={handleChange}
+                  value={form?.buyingGst}
                 />
               </Grid>
               <Grid item size={3}>
@@ -82,6 +83,7 @@ export default function ProfitCalculator() {
                   label="Supplier Shipping (₹)"
                   name="supplierShipping"
                   onChange={handleChange}
+                  value={form?.supplierShipping}
                 />
               </Grid>
               <Grid item size={3}>
@@ -89,6 +91,7 @@ export default function ProfitCalculator() {
                   label="Packaging Cost (₹)"
                   name="packagingCost"
                   onChange={handleChange}
+                  value={form?.packagingCost}
                 />
               </Grid>
               <Grid item size={3}>
@@ -96,6 +99,7 @@ export default function ProfitCalculator() {
                   label="Label Printing (₹)"
                   name="labelCost"
                   onChange={handleChange}
+                  value={form?.labelCost}
                 />
               </Grid>
             </Grid>

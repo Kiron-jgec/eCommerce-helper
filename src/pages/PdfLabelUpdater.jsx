@@ -102,8 +102,8 @@ export default function PdfLabelUpdater() {
 
         // Cut line
         page.drawLine({
-          start: { x: 30, y: 150 },
-          end: { x: width - 30, y: 150 },
+          start: { x: 30, y: 160 },
+          end: { x: width - 30, y: 160 },
           thickness: 1,
           color: rgb(0.7, 0.7, 0.7),
           dashArray: [4, 4],
@@ -133,6 +133,15 @@ export default function PdfLabelUpdater() {
           color: rgb(0.3, 0.3, 0.3),
           lineHeight: 18,
           maxWidth: width - 80,
+        });
+
+            // Cut line
+        page.drawLine({
+          start: { x: 30, y: 25 },
+          end: { x: width - 30, y: 25 },
+          thickness: 1,
+          color: rgb(0.7, 0.7, 0.7),
+          dashArray: [4, 4],
         });
       }
 

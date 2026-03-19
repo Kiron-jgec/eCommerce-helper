@@ -33,8 +33,10 @@ export function calculateMarketplaceSellingPrice(data) {
   const marketplaceFee =
     (listingPrice * marketplaceFeePercent) / 100;
   const sellingGstAmount = (listingPrice * buyingGst) / 100;
-  const finalListingPrice = listingPrice + sellingGstAmount
   const payableGstAmount = sellingGstAmount - (productCost*buyingGst*0.01)
+  const tcsDeductions= listingPrice*0.01
+  const finalListingPrice = listingPrice + payableGstAmount + tcsDeductions
+
   return {
     // buying
     productCost: productCost.toFixed(2),
@@ -54,6 +56,7 @@ export function calculateMarketplaceSellingPrice(data) {
     marketplaceFee: marketplaceFee.toFixed(2),
     sellingGstAmount: sellingGstAmount.toFixed(2),
     payableGstAmount: payableGstAmount.toFixed(2),
+    tcsDeductions:tcsDeductions.toFixed(2),
     // final
 
     listingPrice: finalListingPrice.toFixed(2),

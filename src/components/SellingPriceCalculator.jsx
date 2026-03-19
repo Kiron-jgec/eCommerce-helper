@@ -28,10 +28,10 @@ const Section = ({ title, children }) => (
 export default function SellingPriceCalculator() {
   const [form, setForm] = useState({
     productCost: "",
-    buyingGst: "",
-    supplierShipping: "",
-    packagingCost: "",
-    labelPrintingCost: "",
+    buyingGst: 18,
+    supplierShipping: 2,
+    packagingCost: 10,
+    labelPrintingCost: 1,
     returnCost: "",
     rtoCost: "",
     profitType: "AMOUNT",
@@ -55,7 +55,7 @@ export default function SellingPriceCalculator() {
             </Typography>
     <Grid container spacing={3}>
       {/* INPUTS */}
-      <Grid item size={8} md={8}>
+      <Grid item size={{xs:12,md:9}} >
         <Card
           elevation={0}
           sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}
@@ -67,39 +67,43 @@ export default function SellingPriceCalculator() {
               Product & Buying Cost :{" "}
             </Typography>
             <Grid container spacing={2} mt={2}>
-              <Grid item size={3}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Product Cost (₹)"
                   name="productCost"
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item size={3}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Buying GST (%)"
                   name="buyingGst"
                   onChange={handleChange}
+                  value={form?.buyingGst}
                 />
               </Grid>
-              <Grid item size={3}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Supplier Shipping (₹)"
                   name="supplierShipping"
                   onChange={handleChange}
+                  value={form?.supplierShipping}
                 />
               </Grid>
-              <Grid item size={3}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Packaging Cost (₹)"
                   name="packagingCost"
                   onChange={handleChange}
+                  value={form?.packagingCost}
                 />
               </Grid>
-              <Grid item size={3}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Label Printing Cost (₹)"
                   name="labelPrintingCost"
                   onChange={handleChange}
+                  value={form?.labelPrintingCost}
                 />
               </Grid>
             </Grid>
@@ -109,14 +113,14 @@ export default function SellingPriceCalculator() {
               Return & RTO Cost (Avg) :{" "}
             </Typography>
             <Grid container spacing={2} mt={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Return Cost (₹)"
                   name="returnCost"
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="RTO Cost (₹)"
                   name="rtoCost"
@@ -130,7 +134,7 @@ export default function SellingPriceCalculator() {
             </Typography>
 
             <Grid container spacing={2} mt={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Marketplace Fee (%)"
                   name="marketplaceFeePercent"
@@ -145,7 +149,7 @@ export default function SellingPriceCalculator() {
             </Typography>
 
             <Grid container spacing={2} mt={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <ToggleButtonGroup
                   size="small"
                   exclusive
@@ -157,7 +161,7 @@ export default function SellingPriceCalculator() {
                   <ToggleButton value="PERCENT">% Percent</ToggleButton>
                 </ToggleButtonGroup>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label={
                     form.profitType === "PERCENT" ? "Profit (%)" : "Profit (₹)"
@@ -173,7 +177,7 @@ export default function SellingPriceCalculator() {
               Optional Buyer Shipping :{" "}
             </Typography>
             <Grid container spacing={2} mt={1}>
-              <Grid item xs={12} sm={6}>
+              <Grid item size={{xs:12,md:3}}>
                 <Input
                   label="Buyer Shipping Charge (₹)"
                   name="buyerShipping"
@@ -186,7 +190,7 @@ export default function SellingPriceCalculator() {
       </Grid>
 
       {/* RESULT */}
-      <Grid item size={4} md={8}>
+      <Grid item size={{xs:12,md:3}}>
         <Card
           elevation={0}
           sx={{
@@ -233,6 +237,8 @@ export default function SellingPriceCalculator() {
               <Row label="Marketplace Fee" value={result.marketplaceFee} />
               <Row label="Selling GST" value={result.sellingGstAmount} />
               <Row label="Payable GST" value={result.payableGstAmount*-1} color="error" />
+              <Row label="TCS Deduction" value={result.tcsDeductions*-1} color="error" />
+
             </Section>
 
             <Divider sx={{ my: 2.3 }} />
@@ -240,9 +246,7 @@ export default function SellingPriceCalculator() {
             {/* FINAL */}
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
+           
               }}
             >
               <Typography variant="h4" >

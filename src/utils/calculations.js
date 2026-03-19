@@ -27,7 +27,7 @@ export function calculateEcommercePricing(data) {
     marketplaceFee + gstOnFee + tcs + buyerShipping;
 
   const netSettlement = sellingPrice - totalDeductions;
-  const sellingGstAmount = (sellingPrice * gstPercent) / 100;
+  const sellingGstAmount = (sellingPrice * buyingGst) / 100;
   const payableGstAmount = sellingGstAmount - buyingGstAmount - gstOnFee;
   const profit = netSettlement - finalBuyingPrice- payableGstAmount;
   const profitMargin = (profit / sellingPrice) * 100;
