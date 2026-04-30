@@ -8,6 +8,7 @@ import LowShippingGeneratorPage from "./pages/LowShippingGenerator";
 import BreakEven from "./pages/BreakEven";
 import AdRoas from "./pages/AdRoas";
 import ReturnLoss from "./pages/ReturnLoss";
+import BusinessCardPrint from "./pages/BusinessCardPrint";
 export default function App() {
   return (
     <BrowserRouter>
@@ -24,7 +25,7 @@ export default function App() {
           <Route path="/break-even-calculator" element={<BreakEven />} />
           <Route path="/ad-roas-calculator" element={<AdRoas />} />
           <Route path="/return-loss-calculator" element={<ReturnLoss />} />
-
+          <Route path="/business-card-print" element={<BusinessCardPrint />} />
 
         </Routes>
       </MainLayout>

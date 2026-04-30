@@ -66,17 +66,18 @@ export default function HomePage() {
         </Typography>
 
         <Grid container spacing={4} mt={4}>
-          <Grid item size={4}>
+          <Grid item size={6}>
             <Paper
               elevation={0}
               sx={{
                 p: 4,
                 textAlign: "center",
                 transition: "0.3s",
+                alignContent: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
                 },
-                 height:"100%",
+                 height:"300px",
                  border: 1,
                  borderColor: "divider",
                  backgroundColor: "background.paper",
@@ -98,18 +99,19 @@ export default function HomePage() {
           </Grid>
 
 
-          <Grid item size={4}>
+          <Grid item size={6}>
             <Paper
              onClick={()=>navigateNow("/selling-price-calculator")}
               elevation={0}
-              sx={{
+               sx={{
                 p: 4,
                 textAlign: "center",
                 transition: "0.3s",
+                alignContent: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
                 },
-                 height:"100%",
+                 height:"300px",
                  border: 1,
                  borderColor: "divider",
                  backgroundColor: "background.paper",
@@ -129,18 +131,21 @@ export default function HomePage() {
             </Paper>
           </Grid>
 
-          <Grid item size={4}>
+
+
+          <Grid item size={6}>
             <Paper
               elevation={0}
               onClick={()=>navigateNow("/pdf-label-updater")}
-              sx={{
+             sx={{
                 p: 4,
                 textAlign: "center",
                 transition: "0.3s",
+                alignContent: "center",
                 "&:hover": {
                   transform: "translateY(-8px)",
                 },
-                 height:"100%",
+                 height:"300px",
                  border: 1,
                  borderColor: "divider",
                  backgroundColor: "background.paper",
@@ -155,6 +160,36 @@ export default function HomePage() {
               </Typography>
               <Typography variant="body2" color="text.secondary" mt={1}>
                 Automatically add thank-you notes to shipping labels in bulk.
+              </Typography>
+            </Paper>
+          </Grid>
+                 <Grid item size={6}>
+            <Paper
+              elevation={0}
+              onClick={()=>navigateNow("/business-card-print")}
+              sx={{
+                p: 4,
+                textAlign: "center",
+                transition: "0.3s",
+                alignContent: "center",
+                "&:hover": {
+                  transform: "translateY(-8px)",
+                },
+                 height:"300px",
+                 border: 1,
+                 borderColor: "divider",
+                 backgroundColor: "background.paper",
+                 cursor:"pointer"
+              }}
+            >
+              <PictureAsPdfIcon
+                sx={{ fontSize: 50, mb: 2, color: "primary.main" }}
+              />
+              <Typography variant="h6" fontWeight={600}>
+                Business Card Print
+              </Typography>
+              <Typography variant="body2" color="text.secondary" mt={1}>
+                Print business cards in a 2x5 layout on A4 paper.
               </Typography>
             </Paper>
           </Grid>
