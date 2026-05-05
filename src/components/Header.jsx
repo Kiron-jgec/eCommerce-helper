@@ -22,6 +22,8 @@ export default function Header() {
     { label: "Selling Price Calculator", path: "/selling-price-calculator" },
     { label: "Add Message for Buy's on Labels", path: "/pdf-label-updater" },
     { label: "Business Card Print", path: "/business-card-print" },
+    { label: "Image Variation Create", path: "/image-variation-create" },
+
     // { label: "Break-Even Calculator", path: "/break-even-calculator" },
     // { label: "Ad ROAS Calculator", path: "/ad-roas-calculator" },
     // { label: "Return Loss Calculator", path: "/return-loss-calculator" },

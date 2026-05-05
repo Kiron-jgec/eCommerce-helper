@@ -9,6 +9,7 @@ import BreakEven from "./pages/BreakEven";
 import AdRoas from "./pages/AdRoas";
 import ReturnLoss from "./pages/ReturnLoss";
 import BusinessCardPrint from "./pages/BusinessCardPrint";
+import ImageVariationCreate from "./pages/ImageVariationCreate";
 export default function App() {
   return (
     <BrowserRouter>
@@ -26,7 +27,7 @@ export default function App() {
           <Route path="/ad-roas-calculator" element={<AdRoas />} />
           <Route path="/return-loss-calculator" element={<ReturnLoss />} />
           <Route path="/business-card-print" element={<BusinessCardPrint />} />
-
+          <Route path="/image-variation-create" element={<ImageVariationCreate />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

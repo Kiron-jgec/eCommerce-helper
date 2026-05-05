@@ -161,7 +161,7 @@ const handlePrint = () => {
           variant="contained"
           component="label"
           startIcon={<UploadFileIcon />}
-          color="primary"
+          color="secondary"
         >
           Upload PDF / Image
           <input hidden type="file" onChange={handleFileUpload} />
