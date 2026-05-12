@@ -10,6 +10,7 @@ import AdRoas from "./pages/AdRoas";
 import ReturnLoss from "./pages/ReturnLoss";
 import BusinessCardPrint from "./pages/BusinessCardPrint";
 import ImageVariationCreate from "./pages/ImageVariationCreate";
+import ProductIdentifyLabelCreate from "./pages/ProductIdentifyLabelCreate"
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,8 @@ export default function App() {
           <Route path="/return-loss-calculator" element={<ReturnLoss />} />
           <Route path="/business-card-print" element={<BusinessCardPrint />} />
           <Route path="/image-variation-create" element={<ImageVariationCreate />} />
+          <Route path="/product-identify-label-create" element={<ProductIdentifyLabelCreate />} />
+
         </Routes>
       </MainLayout>
     </BrowserRouter>

@@ -12,6 +12,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import PermMediaIcon from '@mui/icons-material/PermMedia';
 import ViewDayIcon from '@mui/icons-material/ViewDay';
+import PhotoAlbumIcon from '@mui/icons-material/PhotoAlbum';
 import { useNavigate } from 'react-router-dom';
 export default function HomePage() {
   const navigate = useNavigate();
@@ -222,6 +223,37 @@ export default function HomePage() {
               </Typography>
               <Typography variant="body2" color="text.secondary" mt={1}>
                 Create multiple variations of your images with different effects.
+              </Typography>
+            </Paper>
+          </Grid>
+
+                          <Grid item size={6}>
+            <Paper
+              elevation={0}
+              onClick={()=>navigateNow("/product-identify-label-create")}
+              sx={{
+                p: 4,
+                textAlign: "center",
+                transition: "0.3s",
+                alignContent: "center",
+                "&:hover": {
+                  transform: "translateY(-8px)",
+                },
+                 height:"300px",
+                 border: 1,
+                 borderColor: "divider",
+                 backgroundColor: "background.paper",
+                 cursor:"pointer"
+              }}
+            >
+              <PhotoAlbumIcon
+                sx={{ fontSize: 50, mb: 2, color: "primary.main" }}
+              />
+              <Typography variant="h6" fontWeight={600}>
+                Product Identify Label Create
+              </Typography>
+              <Typography variant="body2" color="text.secondary" mt={1}>
+                Create labels for attach in product box to identify product.
               </Typography>
             </Paper>
           </Grid>
