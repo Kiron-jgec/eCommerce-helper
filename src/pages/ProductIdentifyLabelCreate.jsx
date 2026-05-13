@@ -14,7 +14,7 @@ import {
 import UploadIcon from "@mui/icons-material/Upload";
 import PrintIcon from "@mui/icons-material/Print";
 
-const LABELS_PER_PAGE = 20;
+const LABELS_PER_PAGE = 40;
 
 export default function InventoryLabelGenerator() {
   const printRef = useRef(null);
@@ -85,12 +85,10 @@ export default function InventoryLabelGenerator() {
 
             #print-area {
               position: absolute;
-              top: 0;
-              left: 0;
+              top: 5mm;
+              left: 5mm;
               width: 200mm;
               height: 287mm;
-              margin: 0;
-              padding: 0;
               overflow: hidden !important;
               background: white;
             }
@@ -113,7 +111,7 @@ export default function InventoryLabelGenerator() {
           <Grid item xs={12} md={4} className="no-print">
             <Card
               sx={{
-                borderRadius: 1,
+                borderRadius: 2,
                 position: "sticky",
                 top: 100,
               }}
@@ -130,7 +128,8 @@ export default function InventoryLabelGenerator() {
                     onChange={handleChange("productName")}
                     fullWidth
                   />
-                   <TextField
+
+                  <TextField
                     label="Product ID"
                     value={form.productId}
                     onChange={handleChange("productId")}
@@ -195,20 +194,20 @@ export default function InventoryLabelGenerator() {
                 boxSizing: "border-box",
               }}
             >
-              <Box
-                id="print-area"
-                ref={printRef}
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, 1fr)",
-                  gridTemplateRows: "repeat(5, 1fr)",
-                  gap: "2.5mm",
-                  overflow: "hidden",
-                  boxSizing: "border-box",
-                }}
-              >
+            <Box
+              id="print-area"
+              ref={printRef}
+              sx={{
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                gridTemplateColumns: "repeat(5, 1fr)",
+                gridTemplateRows: "repeat(8, 1fr)",
+                gap: "3mm",
+                overflow: "hidden",
+                boxSizing: "border-box",
+              }}
+            >
                 {labels.map((_, index) => (
                   <Box
                     key={index}
@@ -219,7 +218,7 @@ export default function InventoryLabelGenerator() {
                       overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
-                      p: 1,
+                      p: 0.5,
                       background: "#fff",
                       minHeight: 0,
                     }}
@@ -227,14 +226,14 @@ export default function InventoryLabelGenerator() {
                     {/* IMAGE */}
                     <Box
                       sx={{
-                        height: "24mm",
+                        height: "14mm",
                         borderRadius: 1,
                         overflow: "hidden",
                         background: "#f5f5f5",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        mb: 1,
+                        mb: 0.4,
                         flexShrink: 0,
                       }}
                     >
@@ -252,6 +251,7 @@ export default function InventoryLabelGenerator() {
                         <Typography
                           variant="caption"
                           color="text.secondary"
+                          sx={{ fontSize: "7px" }}
                         >
                           No Image
                         </Typography>
@@ -260,18 +260,17 @@ export default function InventoryLabelGenerator() {
 
                     {/* PRODUCT NAME */}
                     <Typography
-                      variant="body2"
-                      fontWeight={600}
+                      fontWeight={700}
                       textAlign="center"
                       sx={{
-                        lineHeight: 1.1,
-                        fontSize: "12px",
-                        mb: 0.5,
+                        lineHeight: 1,
+                        fontSize: "8px",
+                        mb: 0.2,
                         overflow: "hidden",
                         display: "-webkit-box",
                         WebkitLineClamp: 2,
                         WebkitBoxOrient: "vertical",
-                        minHeight: "20px",
+                        minHeight: "12px",
                       }}
                     >
                       {form.productName || "Product Name"}
@@ -279,41 +278,34 @@ export default function InventoryLabelGenerator() {
 
                     {/* DETAILS */}
                     <Box mt="auto">
-                       <Typography
-                        variant="caption"
-                        display="block"
-                        sx={{
-                          lineHeight: 1.2,
-                          fontSize: "10px",
-                          mb:0.5
-                        }}
-                      >
-                       <b> Product Id :</b> {form.productId || "1001"}
-                      </Typography>
                       <Typography
-                        variant="caption"
-                        display="block"
                         sx={{
-                          lineHeight: 1.2,
-                          fontSize: "10px",
-                          mb:0.5
+                          lineHeight: 1.1,
+                          fontSize: "7px",
+                          mb: 0.2,
                         }}
                       >
-                        <b>SKU :</b> {form.skuId || "SKU001"}
+                        <b>ID:</b> {form.productId || "1001"}
                       </Typography>
 
-                     
-
                       <Typography
-                        variant="caption"
-                        display="block"
                         sx={{
-                          lineHeight: 1.2,
-                          fontSize: "10px",
-                          mb:0.5
+                          lineHeight: 1.1,
+                          fontSize: "7px",
+                          mb: 0.2,
                         }}
                       >
-                       <b> Color : </b>{form.color || "Black"}
+                        <b>SKU:</b> {form.skuId || "SKU001"}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          lineHeight: 1.1,
+                          fontSize: "7px",
+                          mb: 0,
+                        }}
+                      >
+                        <b>Color:</b> {form.color || "Black"}
                       </Typography>
                     </Box>
                   </Box>
